@@ -8,6 +8,12 @@
 # Required packages
 library(ggplot2)
 
+# Function to pause between graphs
+pause <- function() {
+  cat("\n", "Hit enter to continue:", "\n")
+  s <- scan(n=1)
+}
+
 # Read in the file
 all <- read.csv(file='2012_FEGuide.csv', header=TRUE)
 
@@ -23,6 +29,7 @@ bp.all <- boxplot(manualTrans$Comb.FE..Guide....Conventional.Fuel ~ manualTrans$
                   las=2,
                   horizontal=TRUE)
 bp.all <- grid()
+pause()
 
 # Pull out all the vehicles that we don't care about
 # Nothing under a combined MPG of 20
@@ -44,7 +51,7 @@ desired <- subset(desired, subset=(Carline.Class.Desc != "Subcompact Cars"))
 desired <- subset(desired, subset=(Mfr.Name != "General Motors"))
 desired <- subset(desired, subset=(Mfr.Name != "Chrysler Group LLC"))
 
-desired$Carline.Class.Desc <- factor(desired$Carline.Class.Desc)oregon average unleaded price
+desired$Carline.Class.Desc <- factor(desired$Carline.Class.Desc)
 desired$Mfr.Name <- factor(desired$Mfr.Name)
 desired$Fuel.Type <- factor(desired$Fuel.Usage....Conventional.Fuel)
 
@@ -56,6 +63,7 @@ bp.desired <- boxplot(desired$Comb.FE..Guide....Conventional.Fuel ~ desired$Mfr.
                       las=2,
                       horizontal=TRUE)
 bp.desired <- grid()
+pause()
 
 # Fix up some column names that are giving trouble
 desired$numCyl <- desired$X..Cyl
