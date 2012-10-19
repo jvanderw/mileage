@@ -1,0 +1,20 @@
+Copyright (c) 2012 Jess VanDerwalker <washu@sonic.net>. All rights
+reserved.
+
+mileage.R
+=========
+
+The mileage.R script takes US Dept. of Energy fuel economy data and
+produces two plots:
+1) A boxplot of fuel economy for manual transmission vehicles by
+   manufacturer.
+2) Fuel economy for 2012 manual transmission cars, station wagons, and
+   minivans by model (minimum combined MPG is set at 20).
+
+The data for comes from the USDoE spreadsheet that can be found here:
+http://www.fueleconomy.gov/feg/epadata/12data.zip
+
+The data is contained within a Excel spreadsheet, and the
+2012_FEGuide.csv file in the project is just the Excel exported as a
+csv, since I find it easier to deal with these than trying to pull the
+Excel sheet into R.
